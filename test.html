@@ -70,6 +70,9 @@
     We present synchronized qualitative comparisons between
     <em>Streaming Flow Policy</em> and the proposed <strong>ControlFlow</strong>,
     initialized from the same starting state.
+    All demonstrations use <strong>state-based observations</strong> as input and
+    are executed under an online streaming inference setting with a
+    maximum rollout horizon of <strong>200 steps</strong>.
   </p>
 
   <div class="controls">
@@ -85,6 +88,11 @@
 
   <div class="caption">
     Baseline behavior under a fixed action magnitude.
+    Using state-based inputs, the policy performs online inference
+    with conservative action updates.
+    Within the 200-step rollout horizon, the baseline may require
+    substantially more steps to approach the target and, in some cases,
+    may not complete the task.
   </div>
   <div class="completion" id="baseline-complete"></div>
 
@@ -96,6 +104,10 @@
 
   <div class="caption">
     ControlFlow with dynamic magnitude scaling.
+    Under the same state-based input and 200-step inference horizon,
+    the proposed method adapts action magnitude online during streaming
+    inference, enabling faster task completion while avoiding excessive
+    actions that could lead to over-pushing.
   </div>
   <div class="completion" id="controlflow-complete"></div>
 
@@ -110,7 +122,6 @@
       const v1 = document.getElementById("baseline");
       const v2 = document.getElementById("controlflow");
 
-      // Reset states
       baselineDone = false;
       controlflowDone = false;
       document.getElementById("baseline-complete").textContent = "";
@@ -134,7 +145,7 @@
         "⏱ Elapsed Time: " + elapsed.toFixed(2) + " s";
     }
 
-    function markCompletion(id, label) {
+    function markCompletion(id) {
       const elapsed = (performance.now() - startTime) / 1000;
       document.getElementById(id).textContent =
         "✓ Completed at " + elapsed.toFixed(2) + " s";
