@@ -45,11 +45,12 @@
 
   <p>
     This page provides supplementary material for anonymous review.
-    We present qualitative demonstrations of the proposed <strong>ControlFlow</strong>
-    framework for streaming action prediction with dynamic magnitude scaling.
+    We present qualitative comparisons between the original <em>Streaming Flow Policy</em>
+    and the proposed <strong>ControlFlow</strong> framework for streaming action prediction.
+    All demonstrations are initialized from the same starting state.
   </p>
 
-  <h2>Baseline Behavior</h2>
+  <h2>Streaming Flow Policy (Baseline)</h2>
 
   <video controls muted loop>
     <source src="org.mp4" type="video/mp4">
@@ -57,7 +58,9 @@
   </video>
 
   <div class="caption">
-    Baseline policy behavior without dynamic magnitude scaling.
+    Behavior of the original Streaming Flow Policy under a fixed action magnitude.
+    Starting from the same initial state, the policy progresses conservatively and
+    requires more steps to complete the task.
   </div>
 
   <h2>ControlFlow (Proposed)</h2>
@@ -68,7 +71,9 @@
   </video>
 
   <div class="caption">
-    ControlFlow demonstrates adaptive action magnitude modulation during streaming inference.
+    ControlFlow with dynamic magnitude scaling.
+    From the same initial state, the proposed method adapts the action magnitude during
+    streaming inference, enabling faster task completion with fewer steps.
   </div>
 
 </body>
