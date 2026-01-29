@@ -1,11 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Anonymous Project Page</title>
+  <title>ControlFlow: Streaming Action Prediction via Dynamic Magnitude Scaling</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 40px auto;
+      max-width: 900px;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 50px;
+      font-size: 24px;
+    }
+    p {
+      font-size: 16px;
+    }
+    video {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .caption {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Anonymous Project Page</h1>
-  <p>This page is for anonymous review.</p>
+
+  <h1>ControlFlow: Streaming Action Prediction via Dynamic Magnitude Scaling</h1>
+
+  <p>
+    This page provides supplementary material for anonymous review.
+    We present qualitative demonstrations of the proposed <strong>ControlFlow</strong>
+    framework for streaming action prediction with dynamic magnitude scaling.
+  </p>
+
+  <h2>Baseline Behavior</h2>
+
+  <video controls muted loop>
+    <source src="org.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="caption">
+    Baseline policy behavior without dynamic magnitude scaling.
+  </div>
+
+  <h2>ControlFlow (Proposed)</h2>
+
+  <video controls muted loop>
+    <source src="controlflow.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="caption">
+    ControlFlow demonstrates adaptive action magnitude modulation during streaming inference.
+  </div>
+
 </body>
 </html>
