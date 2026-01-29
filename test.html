@@ -104,10 +104,12 @@
 
   <div class="caption">
     ControlFlow with dynamic magnitude scaling.
-    Under the same state-based input and 200-step inference horizon,
+    Under the same state-based input and maximum 200-step inference horizon,
     the proposed method adapts action magnitude online during streaming
-    inference, enabling faster task completion while avoiding excessive
-    actions that could lead to over-pushing.
+    inference, where <em>&lambda;</em> serves as a modulation variable that
+    controls the effective action scale.
+    This adaptive scaling enables faster task completion while avoiding
+    excessive actions that could lead to over-pushing.
   </div>
   <div class="completion" id="controlflow-complete"></div>
 
