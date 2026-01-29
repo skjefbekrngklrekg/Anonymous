@@ -35,7 +35,14 @@
       text-align: center;
       font-size: 14px;
       color: #555;
-      margin-bottom: 30px;
+      margin-bottom: 8px;
+    }
+    .completion {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 25px;
     }
     .controls {
       text-align: center;
@@ -79,6 +86,7 @@
   <div class="caption">
     Baseline behavior under a fixed action magnitude.
   </div>
+  <div class="completion" id="baseline-complete"></div>
 
   <h2>ControlFlow (Proposed)</h2>
 
@@ -89,16 +97,25 @@
   <div class="caption">
     ControlFlow with dynamic magnitude scaling.
   </div>
+  <div class="completion" id="controlflow-complete"></div>
 
   <script>
     let startTime = null;
     let timerInterval = null;
 
+    let baselineDone = false;
+    let controlflowDone = false;
+
     function playBoth() {
       const v1 = document.getElementById("baseline");
       const v2 = document.getElementById("controlflow");
 
-      // Reset
+      // Reset states
+      baselineDone = false;
+      controlflowDone = false;
+      document.getElementById("baseline-complete").textContent = "";
+      document.getElementById("controlflow-complete").textContent = "";
+
       v1.currentTime = 0;
       v2.currentTime = 0;
 
@@ -108,11 +125,44 @@
       v1.play();
       v2.play();
 
-      timerInterval = setInterval(() => {
-        const elapsed = (performance.now() - startTime) / 1000;
-        document.getElementById("timer").textContent =
-          "⏱ Elapsed Time: " + elapsed.toFixed(2) + " s";
-      }, 50);
+      timerInterval = setInterval(updateTimer, 50);
+    }
+
+    function updateTimer() {
+      const elapsed = (performance.now() - startTime) / 1000;
+      document.getElementById("timer").textContent =
+        "⏱ Elapsed Time: " + elapsed.toFixed(2) + " s";
+    }
+
+    function markCompletion(id, label) {
+      const elapsed = (performance.now() - startTime) / 1000;
+      document.getElementById(id).textContent =
+        "✓ Completed at " + elapsed.toFixed(2) + " s";
+    }
+
+    const baselineVideo = document.getElementById("baseline");
+    const controlflowVideo = document.getElementById("controlflow");
+
+    baselineVideo.addEventListener("ended", () => {
+      if (!baselineDone) {
+        baselineDone = true;
+        markCompletion("baseline-complete");
+      }
+      checkStopTimer();
+    });
+
+    controlflowVideo.addEventListener("ended", () => {
+      if (!controlflowDone) {
+        controlflowDone = true;
+        markCompletion("controlflow-complete");
+      }
+      checkStopTimer();
+    });
+
+    function checkStopTimer() {
+      if (baselineDone && controlflowDone) {
+        clearInterval(timerInterval);
+      }
     }
   </script>
 
