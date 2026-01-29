@@ -58,9 +58,10 @@
   </video>
 
   <div class="caption">
-    Behavior of the original Streaming Flow Policy under a fixed action magnitude.
-    Starting from the same initial state, the policy progresses conservatively and
-    requires more steps to complete the task.
+    Behavior of Streaming Flow Policy under a fixed action magnitude.
+    Starting from the same initial state, the baseline progresses conservatively and
+    may require substantially more steps to approach the target.
+    In some cases, the task may not be completed within the rollout horizon.
   </div>
 
   <h2>ControlFlow (Proposed)</h2>
@@ -73,7 +74,8 @@
   <div class="caption">
     ControlFlow with dynamic magnitude scaling.
     From the same initial state, the proposed method adapts the action magnitude during
-    streaming inference, enabling faster task completion with fewer steps.
+    streaming inference, enabling faster task completion with fewer steps and
+    improved robustness across demonstrations.
   </div>
 
 </body>
