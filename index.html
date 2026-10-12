@@ -16,7 +16,7 @@
 <p class="anonymous">Anonymous submission</p>
 </header>
 <main id="main">
-<p class="introduction">This page presents qualitative comparisons for the accompanying paper. The real-world push-button demonstration compares <strong>Diffusion Policy</strong>, <strong>Streaming Flow Policy</strong>, and <strong>ControlFlow</strong>; the streaming-policy demonstration compares <strong>Streaming Flow Policy</strong> with <strong>ControlFlow</strong>.</p>
+<p class="introduction">This page presents qualitative comparisons for the accompanying paper. The real-world push-button and pull-screw demonstrations compare <strong>Diffusion Policy</strong>, <strong>Streaming Flow Policy</strong>, and <strong>ControlFlow</strong>; the streaming-policy demonstration compares <strong>Streaming Flow Policy</strong> with <strong>ControlFlow</strong>.</p>
 <section id="real-world" aria-labelledby="real-title">
 <h2 id="real-title">1. Real-world push-button task</h2>
 <p>The following video shows Diffusion Policy (left), Streaming Flow Policy (center), and ControlFlow (right) performing a push-button task on a real robot.</p>
@@ -26,8 +26,17 @@
 </figure>
 <p class="file-link"><a href="ICRA_Push_Button.mp4?v=20261012" download>Download video (MP4)</a></p>
 </section>
+<section id="pull-screw" aria-labelledby="screw-title">
+<h2 id="screw-title">2. Real-world pull-screw task</h2>
+<p>The following video shows Diffusion Policy (left), Streaming Flow Policy (center), and ControlFlow (right) performing a pull-screw task on a real robot.</p>
+<figure>
+<video id="screw-video" controls playsinline preload="metadata" poster="pull-screw-poster.jpg" aria-label="Real-world pull-screw comparison: Diffusion Policy on the left, Streaming Flow Policy in the center, and ControlFlow on the right" aria-describedby="screw-caption"><source src="ICRA_Pull_Screw_Video_diff_stream_ctrl.mp4" type="video/mp4">Your browser does not support video playback. <a href="ICRA_Pull_Screw_Video_diff_stream_ctrl.mp4">Download the MP4</a>.</video>
+<figcaption id="screw-caption"><strong>Video 2.</strong> Real-world comparison of Diffusion Policy, Streaming Flow Policy, and ControlFlow on the pull-screw task. The video reports total times of 12 s, 14 s, and 8 s, respectively, for the shown demonstration.</figcaption>
+</figure>
+<p class="file-link"><a href="ICRA_Pull_Screw_Video_diff_stream_ctrl.mp4" download>Download video (MP4)</a></p>
+</section>
 <section id="comparison" aria-labelledby="comparison-title">
-<h2 id="comparison-title">2. Real-world comparison at selected timestamps</h2>
+<h2 id="comparison-title">3. Real-world comparison at selected timestamps</h2>
 <p>The figure below shows the two methods at 0, 9, 13, 16, and 18 seconds. Diffusion Policy is shown in the top row (Diff.) and ControlFlow in the bottom row (Ctrl.).</p>
 <figure>
 <div class="figure-scroll" tabindex="0" role="region" aria-label="Comparison figure; scroll horizontally on smaller screens"><a href="real-comparison.webp" target="_blank" rel="noopener" aria-label="Open the full-resolution comparison figure in a new tab"><img src="real-comparison.webp" width="3418" height="908" loading="lazy" alt="Real-world push-button sequence: Diffusion Policy on the top row and ControlFlow on the bottom row at 0, 9, 13, 16 and 18 seconds. Insets show close-up views of the keyboard interaction."></a></div>
@@ -37,7 +46,7 @@
 <p class="mobile-hint">Swipe across the figure to view all five timestamps.</p>
 </section>
 <section id="streaming" aria-labelledby="streaming-title">
-<h2 id="streaming-title">3. Streaming-policy comparison</h2>
+<h2 id="streaming-title">4. Streaming-policy comparison</h2>
 <p>The two policies are initialized from the same starting state. Both use <strong>state-based observations</strong> and online streaming inference, with a maximum rollout horizon of <strong>200 steps</strong>.</p>
 <div class="player-toolbar" id="pair-controls" hidden><div class="playback-buttons"><button id="play-pair" type="button">Play both <span aria-hidden="true">▶</span></button><button id="reset-pair" type="button">Reset <span aria-hidden="true">↺</span></button></div><label for="playback-rate">Playback speed <select id="playback-rate"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label><output id="pair-time" aria-live="off" aria-label="Video playback time">0.00 s</output></div>
 <div class="policy-grid">
